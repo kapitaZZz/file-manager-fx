@@ -4,30 +4,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2"
+<VBox alignment="center" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal"
       fx:controller="dead.sec.kapitaz.FileManager.Controller">
     <MenuBar>
-        <Menu text="File">
-            <MenuItem text="Exit this program"/>
+        <Menu text="Файл">
+            <MenuItem text="Выйти из программы" onAction="#btnExitAction"/>
         </Menu>
     </MenuBar>
 
-    <HBox>
-        <ComboBox/>
-        <TextField editable="false" HBox.hgrow="ALWAYS"/>
-        <Button text="UP"/>
+    <HBox VBox.vgrow="ALWAYS">
+        <fx:include fx:id="leftPanel" source="panel.fxml" HBox.hgrow="ALWAYS" />
+        <fx:include fx:id="rightPanel" source="panel.fxml" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <HBox spacing="5">
+        <Button maxWidth="Infinity" focusTraversable="false" text="Копировать файл" HBox.hgrow="ALWAYS" onAction="#copyBtnAction"/>
+        <Button maxWidth="Infinity" focusTraversable="false" text="Переместить файл" HBox.hgrow="ALWAYS"/>
+        <Button maxWidth="Infinity" focusTraversable="false" text="Удалить файл" HBox.hgrow="ALWAYS"/>
+        <Button maxWidth="Infinity" focusTraversable="false" text="Выход из программы" HBox.hgrow="ALWAYS" onAction="#btnExitAction"/>
         <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
         </padding>
     </HBox>
-
-    <TableView fx:id="filesTable" VBox.vgrow="ALWAYS"/>
-
-    <HBox spacing="5">
-        <Button maxWidth="Infinity" text="Copy" HBox.hgrow="ALWAYS"/>
-        <Button maxWidth="Infinity" text="Move" HBox.hgrow="ALWAYS"/>
-        <Button maxWidth="Infinity" text="Delete" HBox.hgrow="ALWAYS"/>
-        <Button maxWidth="Infinity" text="Exit" HBox.hgrow="ALWAYS" onAction="#btnExitAction"/>
-    </HBox>
-
 </VBox>
